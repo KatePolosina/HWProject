@@ -3,9 +3,14 @@ import shutil
 
 
 
-def del_folder(folder):
-    """Удаление папки"""
-    shutil.rmtree(folder)
-    print(f'Папка {folder} удалена.')
+
+
+def del_file(file):
+    """Удаление файла"""
+    if os.path.exists(file):
+        os.remove(file)
+        print(f'Файл {file} удален')
+    else:
+        print(f'Файл {file} не найден')
 
 
