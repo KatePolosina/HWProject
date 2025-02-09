@@ -5,19 +5,10 @@ import shutil
 
 
 
-
-def copy_file(src):
-    """Копирование файла"""
-    file = src
-    base, ext = os.path.splitext(src)
-    i = 1
-    if not os.path.exists(file):
-        print(f'Файл {file} отсутствует')
-        return
-    while os.path.exists(file):
-        file = f'{base}_копия_{i}{ext}'
-        i += 1
-    shutil.copy2(src, file)
-    print(f'Файл {src} скопирован в {file}')
-
-
+def move_obj(src, dst):
+    """Перемещение файла или папки"""
+    if os.path.isfile(src):
+        print(f'Файл {src} перемещен в папку {dst}')
+    elif os.path.isdir(src):
+        print(f'Папка {src} перемещена в папку {dst}')
+    shutil.move(src, dst)
